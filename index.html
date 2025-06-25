@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShutR Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Animated Background Elements -->
+        <div class="particles-container" id="particles"></div>
+        <div class="animated-bg" id="animatedBg"></div>
+
+        <!-- Header -->
+        <header class="dark-header">
+            <div class="logo" id="homeButton">
+                ShutR<span class="suffix">s.r</span>
+                <div class="logo-popup">Shutter By Roshan</div>
+            </div>
+            
+            <div class="search-container">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search photos, categories...">
+                    <div class="search-feedback" id="searchFeedback"></div>
+                    <i class="fas fa-search" id="searchButton"></i>
+                </div>
+                <div class="search-error" id="searchError"></div>
+            </div>
+            
+            <div class="nav-icons">
+                <a href="#" id="navHome">
+                    <i class="fas fa-home"></i>
+                    <div class="nav-icon-tooltip">Home</div>
+                </a>
+                <a href="#" id="navExplore">
+                    <i class="fas fa-compass"></i>
+                    <div class="nav-icon-tooltip">Explore</div>
+                </a>
+                <a href="#" id="navChat">
+                    <i class="fas fa-comment-alt"></i>
+                    <div class="nav-icon-tooltip">Chat</div>
+                </a>
+                <a href="#" id="navNotifications">
+                    <i class="fas fa-bell"></i>
+                    <div class="nav-icon-tooltip">Updates</div>
+                    <div class="notifications-dropdown" id="notificationsDropdown">
+                        <div class="notification-item">
+                            <div class="notification-ip" id="userIp"></div>
+                            <div>Your unique visitor ID</div>
+                        </div>
+                        <div class="notification-item">
+                            New camera technology announced at Photokina
+                        </div>
+                        <div class="notification-item">
+                            Nikon releases firmware update for Z series
+                        </div>
+                        <div class="notification-item">
+                            Upcoming photography workshop in your area
+                        </div>
+                    </div>
+                </a>
+                <a href="#" id="navProfile">
+                    <img src="https://picsum.photos/seed/profile/200" class="profile-pic" id="profilePicture">
+                    <div class="nav-icon-tooltip">Meet Photographer</div>
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home View -->
+            <div id="homeView">
+                <h2 class="section-title">Photo Categories</h2>
+                <div class="category-grid">
+                    <div class="category-card" data-category="macro" data-link="https://rosh776.github.io/Web-Macro/">
+                        <img class="category-image" src="https://picsum.photos/id/306/600/600" alt="Macro">
+                        <h3 class="category-title">Macro</h3>
+                    </div>
+                    <div class="category-card" data-category="nature" data-link="https://rosh776.github.io/Web-Nature/">
+                        <img class="category-image" src="https://picsum.photos/id/28/600/600" alt="Nature">
+                        <h3 class="category-title">Nature</h3>
+                    </div>
+                    <div class="category-card" data-category="animals" data-link="https://rosh776.github.io/Web-Animals/">
+                        <img class="category-image" src="https://picsum.photos/id/237/600/600" alt="Animals">
+                        <h3 class="category-title">Animals</h3>
+                    </div>
+                    <div class="category-card" data-category="vehicles" data-link="https://rosh776.github.io/Web-Vechicles/">
+                        <img class="category-image" src="https://picsum.photos/id/1072/600/600" alt="Vehicles">
+                        <h3 class="category-title">Vehicles</h3>
+                    </div>
+                    <div class="category-card" data-category="portrait" data-link="https://rosh776.github.io/Web-Potrait/">
+                        <img class="category-image" src="https://picsum.photos/id/1005/600/600" alt="Portrait">
+                        <h3 class="category-title">Portrait</h3>
+                    </div>
+                    <div class="category-card" data-category="sunset" data-link="https://rosh776.github.io/Web-Sunset/">
+                        <img class="category-image" src="https://picsum.photos/id/10/600/600" alt="Sunset">
+                        <h3 class="category-title">Sunset</h3>
+                    </div>
+                    <div class="category-card" data-category="ocean" data-link="https://rosh776.github.io/Web-Ocean/">
+                        <img class="category-image" src="https://picsum.photos/id/1018/600/600" alt="Ocean">
+                        <h3 class="category-title">Ocean</h3>
+                    </div>
+                    <div class="category-card" data-category="urban" data-link="https://rosh776.github.io/Web-Urban/">
+                        <img class="category-image" src="https://picsum.photos/id/1019/600/600" alt="Urban">
+                        <h3 class="category-title">Urban</h3>
+                    </div>
+                    <div class="category-card" data-category="wildlife" data-link="https://rosh776.github.io/Web-Wildlife/">
+                        <img class="category-image" src="https://picsum.photos/id/1024/600/600" alt="Wildlife">
+                        <h3 class="category-title">Wildlife</h3>
+                    </div>
+                    <div class="category-card" data-category="random" data-link="https://rosh776.github.io/Web-Random/">
+                        <img class="category-image" src="https://picsum.photos/id/103/600/600" alt="Random">
+                        <h3 class="category-title">Random</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery View -->
+            <div id="galleryView" class="gallery-view">
+                <div class="gallery-header">
+                    <button class="back-button">&larr;</button>
+                    <h2 id="galleryTitle">Category</h2>
+                </div>
+                <div class="gallery" id="galleryContainer">
+                    <!-- Images will be loaded here -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Image Viewer -->
+        <div class="image-viewer" id="imageViewer">
+            <button class="close-viewer">&times;</button>
+            <button class="nav-button prev-button">&lsaquo;</button>
+            <div class="viewer-content">
+                <img class="viewer-image" src="" alt="Enlarged view">
+                <div class="image-caption" id="imageCaption"></div>
+            </div>
+            <button class="nav-button next-button">&rsaquo;</button>
+        </div>
+
+        <!-- Chatbot Container -->
+        <div class="chatbot-container" id="chatbotContainer">
+            <div class="chatbot-header">
+                <h3>ShutR Assistant</h3>
+                <button class="chatbot-close">&times;</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <!-- Messages will appear here -->
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbotInput" placeholder="Type your message...">
+                <button id="chatbotSend">Send</button>
+            </div>
+        </div>
+
+        <!-- Theme Toggle -->
+        <button id="themeToggle" class="floating-btn">
+            <i class="fas fa-palette"></i>
+        </button>
+
+        <!-- Audio Element (hidden) -->
+        <audio id="bgMusic" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="animations.js"></script>
+</body>
+</html>
